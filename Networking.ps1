@@ -7,8 +7,8 @@ $FirewallRules | Set-NetFirewallRule -Enabled 'True' -WhatIf
 Get-NetIPAddress # Get all network cards IP addresses
 Get-NetIPConfiguration # Get all network devices
 
-Get-DnsClient # 
-Get-DnsClientCache
+Get-DnsClient # Get network interfaces information.
+Get-DnsClientCache # Local DNS cache content.
 Get-DnsClientServerAddress
 
 # Map a Network Drive
