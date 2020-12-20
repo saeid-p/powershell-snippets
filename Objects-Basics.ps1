@@ -26,21 +26,20 @@ Get-service | Select-Object Name,MachineName,Status
 # Remember that results are always sent as a list, but are evaluated individually.
 Get-Service | Select-Object Name,MachineName,Status | Get-Member
 
+# A multiline command to filter .
 Get-Service |
 Where-Object Status -eq "Stopped" |
 Select-Object Name,MachineName |
 Sort-Object -Property MachineName
 
-# A multiline command to filter .
-Get-Service |
-Where-Object Status -EQ 'Stopped' |
-Select-Object DisplayName, Status
-
 # === Variables ===
-$ServiceList = Get-Service |
-Where-Object Status -EQ 'Stopped' |
-Select-Object DisplayName, Status
+$ServiceList = Get-Service | Where-Object Status -EQ 'Stopped' | Select-Object DisplayName, Status
 
 $ServiceList # Prints the content of the variable.
 $ServiceList | Out-File .\Services.txt # Writes the results of a variable into a file.
 $ServiceList | Export-Csv .\MyFile.csv # Writes the results of a variable into a file in CSV format.
+
+$ServiceList | Format-Table # Prints the result in table format. Alias: FT
+
+# -WhatIf shows the expected results of performing Start-Service on every items inside the varilable without executing it. 
+$ServiceList | Start-Service -WhatIf
