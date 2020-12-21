@@ -43,3 +43,7 @@ $ServiceList | Format-Table # Prints the result in table format. Alias: FT
 
 # -WhatIf shows the expected results of performing Start-Service on every items inside the varilable without executing it. 
 $ServiceList | Start-Service -WhatIf
+
+$MyVariable = "Test"
+Write-Output "This is a test output. Parameter: $MyVariable" # Write an output to the console.
+Write-Output 'With single quotes, we can print the name of a variable: $MyVariable'
