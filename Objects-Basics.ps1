@@ -28,7 +28,7 @@ Get-Service | Select-Object Name,MachineName,Status | Get-Member
 
 # A multiline command to filter .
 Get-Service |
-Where-Object Status -eq "Stopped" |
+Where-Object Status -EQ "Stopped" |
 Select-Object Name,MachineName |
 Sort-Object -Property MachineName
 
