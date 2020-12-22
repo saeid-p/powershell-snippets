@@ -20,17 +20,28 @@ Get-Service -Name "*Print*" # Search services by name and wildcard query.
 Get-service | Get-Member
 
 # Select-Object filters the result set from the prvious command.
-Get-service | Select-Object Name,MachineName,Status
+Get-service | Select-Object Name,MachineName,Status -Unique
 
 # You can chain commands to pass the result to other commands.
 # Remember that results are always sent as a list, but are evaluated individually.
 Get-Service | Select-Object Name,MachineName,Status | Get-Member
 
-# A multiline command to filter .
+# A multiline command to filter.
 Get-Service |
 Where-Object Status -EQ "Stopped" |
 Select-Object Name,MachineName |
 Sort-Object -Property MachineName
+
+# List commands.
+Get-Service | 
+Where-Object Status -EQ "Stopped" |
+Select-Object -First 5
+# Select-Object -Unique -Skip 5 -Last 5 -ExpandProperty Name
+
+# Group Objects.
+Get-Service | 
+Group-Object Status |
+Sort-Object Count -Descending
 
 # === Variables ===
 $ServiceList = Get-Service | Where-Object Status -EQ 'Stopped' | Select-Object DisplayName, Status
@@ -45,5 +56,5 @@ $ServiceList | Format-Table # Prints the result in table format. Alias: FT
 $ServiceList | Start-Service -WhatIf
 
 $MyVariable = "Test"
-Write-Output "This is a test output. Parameter: $MyVariable" # Write an output to the console.
+Write-Output "Parameter Value: $MyVariable" # Writes an output to the console.
 Write-Output 'With single quotes, we can print the name of a variable: $MyVariable'
