@@ -1,13 +1,8 @@
-MKDIR D:\test-scripts\transcripts
+# Learn more: https://docs.microsoft.com/en-us/powershell/module/sqlserver/invoke-sqlcmd
 
-Get-Content .\Services.csv | more # Read the content of a file. Alias: GC
+$ConnectionString = "Data Source=.;Initial Catalog=Master;Integrated Security=True"
+$Query1 = "SELECT * FROM sys.databases"
+Invoke-Sqlcmd -Query $Query1 -ConnectionString $ConnectionString
 
-Get-ChildItem -Path C:\Windows # Get items inside a folder. Alias: GCI
-Get-ChildItem -Path C:\Temp -Recurse # Get items inside a folder and all children.
-Get-ChildItem -Path C:\ | Get-Member # See all members of the file object.
-Get-ChildItem -Path C:\ | Where-Object Extension -EQ '.Dat' | Format-Table Directory,Name,LastWriteTime
-
-Copy-Item "C:\Temp" -Destination "C:\New-Temp" -Recurse -Verbose # Copy the content of a folder into another. Alias: Copy
-Move-Item "C:\New-Temp" -Destination "Very-New-Temp" -verbose # Move a fodler to a destination. Alias: MI
-Rename-Item "C:\New-Temp" -NewName "C:\Renamed-Temp" # Rename a folder. Alias: RNI
-Remove-Item "C:\Renamed-Temp" # Remove a folder. Alias: RM
+$Query2 = "SELECT GETDATE() AS [TimeOfQuery]"
+Invoke-Sqlcmd -ServerInstance "." -Database "Master" -Username ="Test" -Password "Test" -Query $Query2
