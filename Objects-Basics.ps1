@@ -44,7 +44,7 @@ Group-Object Status |
 Sort-Object Count -Descending
 
 # === Variables ===
-$ServiceList = Get-Service | Where-Object Status -EQ 'Stopped' | Select-Object DisplayName, Status
+$ServiceList = Get-Service | Where-Object Status -EQ 'Stopped'
 
 $ServiceList # Prints the content of the variable.
 $ServiceList | Out-File .\Services.txt # Writes the results of a variable into a file.
@@ -55,6 +55,23 @@ $ServiceList | Format-Table # Prints the result in table format. Alias: FT
 # -WhatIf shows the expected results of performing Start-Service on every items inside the varilable without executing it. 
 $ServiceList | Start-Service -WhatIf
 
+# Loop on object elements.
+$ServiceList | ForEach-Object {
+    Write-Output $_.Name # $_ refers to the current element.
+}
+
+# Loop on a list.
+$MyNums = 1..20 # Creates a list of numbers from 1 to 20.
+foreach ($MyNum in $MyNums) {
+    Write-Output $MyNum
+}
+
 $MyVariable = "Test"
 Write-Output "Parameter Value: $MyVariable" # Writes an output to the console.
 Write-Output 'With single quotes, we can print the name of a variable: $MyVariable'
+
+# Interacti with .NET objects
+[System.Math]::Sqrt(36)
+
+$Now = [System.DateTime]::Now
+$Now.AddDays(5)
