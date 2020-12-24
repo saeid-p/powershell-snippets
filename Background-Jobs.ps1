@@ -6,4 +6,3 @@ Get-Job -State "Completed" # Filter by state.
 
 # Start a job from a file
 Start-Job -FilePath "C:\Scripts\MyScript.ps1"
-
