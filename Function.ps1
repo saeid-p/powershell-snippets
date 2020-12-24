@@ -1,11 +1,8 @@
 # Usage: .\Function.ps1 -ProcessNames 'notepad', 'code' -Extension 'ps1'
 param (
     [Parameter(Mandatory=$True)]
-    [string[]]
-    $ProcessNames,
-    [Parameter(Mandatory=$True)]
-    [string]
-    $Extension
+    [string[]]$ProcessNames,
+    [string]$Extension = "txt"
 )
 
  $CurrentFolderFiles = Get-ChildItem -Path ".\" | 
