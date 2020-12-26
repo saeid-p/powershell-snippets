@@ -1,3 +1,5 @@
+Get-Volume # Ger drives information
+
 Get-ChildItem -Path C:\Windows # Get items inside a folder. Alias: GCI
 Get-ChildItem -Path C:\Temp -Recurse # Get items inside a folder and all children.
 Get-ChildItem -Path C:\ | Get-Member # See all members of the file object.
@@ -14,3 +16,5 @@ Remove-Item "C:\Renamed-Temp" # Remove a folder. Alias: RM
 Get-Content $TestFileName | more # Read the content of a file. Alias: GC
 Set-Content $TestFileName 'Hello' # Change the content of a file.
 Add-Content $TestFileName 'World!' # Append text to the end of a file.
+
+Test-Path "C:\test.txt" # Checks if a file or a folder exists.
