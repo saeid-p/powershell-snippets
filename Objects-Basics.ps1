@@ -75,3 +75,5 @@ Write-Output 'With single quotes, we can print the name of a variable: $MyVariab
 
 $Now = [System.DateTime]::Now
 $Now.AddDays(5)
+
+$MyString = "Test".ToLower()
