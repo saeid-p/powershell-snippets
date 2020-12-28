@@ -1,5 +1,3 @@
-# Personal PowerShell Cheat Sheet & Notes
+## Personal PowerShell Cheat Sheet & Notes
 
-My personal repo for my PowerShell Core training path.
-
-It is also a my powershell cheat sheet.
+This reppo contains my PowerShell Core snippets, templates, and notes.
