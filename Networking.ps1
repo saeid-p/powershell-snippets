@@ -23,3 +23,6 @@ Test-NetConnection -TraceRoute 4.2.2.1
 Test-NetConnection -CommonTCPPort 80 -ComputerName 4.2.2.1
 Test-NetConnection -CommonTCPPort HTTP -ComputerName 4.2.2.1
 Test-NetConnection -CommonTCPPort HTTP -ComputerName "Google.Com"
+
+# Get all active processes and their ports.
+Get-NetTCPConnection -LocalPort 135
