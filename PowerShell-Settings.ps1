@@ -9,4 +9,4 @@ notepad $PROFILE
 
 Import-Module posh-git
 Import-Module oh-my-posh    
-Set-Theme Paradox #Optional theme. Works best with Cascadia Code PL.
+Set-PoshPrompt -Theme Paradox
