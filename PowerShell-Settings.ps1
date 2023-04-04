@@ -1,3 +1,6 @@
+# New Installation Method:
+# https://ohmyposh.dev/docs/installation/windows
+
 # https://www.hanselman.com/blog/how-to-make-a-pretty-prompt-in-windows-terminal-with-powerline-nerd-fonts-cascadia-code-wsl-and-ohmyposh
 # Font: "Cascadia Code PL": https://github.com/microsoft/cascadia-code/releases
 Install-Module posh-git -Scope CurrentUser
